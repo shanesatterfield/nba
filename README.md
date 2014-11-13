@@ -1,5 +1,4 @@
-# nba
-
+# NBA
 CECS 323 Final Project
 
 ## Overview
