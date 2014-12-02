@@ -1,0 +1,12 @@
+2014-12-01 18:36:00,387 - [INFO] - from play in pool-4-thread-3 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2014-12-01 18:36:11,261 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:mysql://infoserver.cecs.csulb.edu:3306/fall2014v] bound to JNDI as nba
+
+2014-12-01 18:36:12,313 - [INFO] - from play in play-internal-execution-context-1 
+database [nba] connected at jdbc:mysql://infoserver.cecs.csulb.edu:3306/fall2014v
+
+2014-12-01 18:36:12,805 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
