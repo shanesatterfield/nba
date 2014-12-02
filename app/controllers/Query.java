@@ -11,7 +11,7 @@ public class Query {
 		String sqlCode = "INSERT INTO Team (teamName,teamCity,teamState,teamHomeColors,teamAwayColors,teamRanking,teamDivision,teamConference) VALUES ('asdf', 'Coast City', 'CC', 'Green', 'Yellow', 30, 'Pacific', 'Western');";
 		query(sqlCode, false);
 
-		ArrayList<ArrayList<String>> result = query("SELECT * FROM Team;", true);
+		ArrayList<ArrayList<String>> result = query("SELECT teamName AS Team, teamCity AS City, teamState AS State, teamHomeColors AS 'Home Colors', teamAwayColors AS 'Away Colors', teamRanking AS Ranking, teamDivision AS Division, teamConference AS Conference FROM Team;", true);
 		result.add(0, new ArrayList<String>(){{ add(sqlCode); }});
 
 		return result;
@@ -21,7 +21,7 @@ public class Query {
 		String sqlCode = "UPDATE Team SET teamState = 'NY' WHERE teamName = 'asdf';";
 		query(sqlCode, false);
 
-		ArrayList<ArrayList<String>> result = query("SELECT * FROM Team;", true);
+		ArrayList<ArrayList<String>> result = query("SELECT teamName AS Team, teamCity AS City, teamState AS State, teamHomeColors AS 'Home Colors', teamAwayColors AS 'Away Colors', teamRanking AS Ranking, teamDivision AS Division, teamConference AS Conference FROM Team;", true);
 		result.add(0, new ArrayList<String>(){{ add(sqlCode); }});
 
 		return result;
@@ -31,7 +31,7 @@ public class Query {
 		String sqlCode = "DELETE FROM Team WHERE teamName = 'asdf';";
 		query(sqlCode, false);
 
-		ArrayList<ArrayList<String>> result = query("SELECT * FROM Team;", true);
+		ArrayList<ArrayList<String>> result = query("SELECT teamName AS Team, teamCity AS City, teamState AS State, teamHomeColors AS 'Home Colors', teamAwayColors AS 'Away Colors', teamRanking AS Ranking, teamDivision AS Division, teamConference AS Conference FROM Team;", true);
 		result.add(0, new ArrayList<String>(){{ add(sqlCode); }});
 
 		return result;

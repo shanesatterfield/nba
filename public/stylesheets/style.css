@@ -1,23 +1,14 @@
-@font-face {
-	font-family: Montserrat-Regular;
-	src: url(../fonts/Montserrat-Regular.ttf);
-}
 .command-block {
 	padding: 0.75em;
 	text-align: center;
-
-    color: white;
-    font-family: Montserrat-Regular;
-    
+    color: white;    
 	height: 13em;
 }
 
 .jack-in {
     background-color: #0D405C;
-    padding: 0.5em;
-    
+    padding: 0.75em;
     height: 100%;
-    
 	border-radius: 10px;
 }
 

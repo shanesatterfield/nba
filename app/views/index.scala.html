@@ -1,6 +1,6 @@
 @import java.util.ArrayList
 
-@(title: String)(rows: ArrayList[ArrayList[String]])(headers: ArrayList[String])(query: String)
+@(title: String)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,28 +54,28 @@
 				<div class="jack-in" data-command="3">
 					<h2>Delete</h2>
 					<hr />
-					<p></p>
+					<p>Delete the team that was inserted earlier.</p>
 				</div>
 			</div>
 			<div class="command-block col-md-4">
 				<div class="jack-in" data-command="4">
 					<h2>Query 1</h2>
 					<hr />
-					<p></p>
+					<p>Find the division with the highest rank.</p>
 				</div>
 			</div>
 			<div class="command-block col-md-4">
 				<div class="jack-in" data-command="5">
 					<h2>Query 2</h2>
 					<hr />
-					<p></p>
+					<p>Find the teams that do not belong to a network.</p>
 				</div>
 			</div>
 			<div class="command-block col-md-4">
 				<div class="jack-in" data-command="6">
 					<h2>Query 3</h2>
 					<hr />
-					<p></p>
+					<p>Find teams that are never playing as the home team.</p>
 				</div>
 			</div>
 		</div>
@@ -85,22 +85,8 @@
 			<span class="glyphicon glyphicon-arrow-left"></span>
 		</button>
 		<h1>Result Data</h1>
-		<pre><code id="code-section" class="sql">@query</code></pre>
-		<table id="result-table" class="table table-striped">
-			<tr>
-			@for( header <- headers ) {
-				<th>@header</th>
-			}
-			</tr>
-			
-			@for( row <- rows ) {
-				<tr>
-				@for( curr <- row ) {
-					<td>@curr</td>				
-				}
-				</tr>
-			}
-		</table>
+		<pre><code id="code-section" class="sql"></code></pre>
+		<table id="result-table" class="table table-striped"></table>
 	</div>
 </body>
 </html>

@@ -16,53 +16,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class Application extends Controller {
 
     public static Result index() {
-    	String teamName = "Could not obtain.";
-    	Connection conn = null;
-    	Statement stmnt = null;
-    	ResultSet rs = null;
-    	ResultSetMetaData rsmd = null;
-    	ArrayList<String> headers = new ArrayList<String>();
-    	ArrayList<ArrayList<String>> rows = new ArrayList<ArrayList<String>>();
-    	String sqlCode = "SELECT * FROM Team;";
- 
-    	try {
-    		conn = DB.getConnection("nba");
-
-	    	stmnt = conn.createStatement();
-	    	//rs = stmnt.executeQuery("SELECT teamName AS Name FROM Team;");
-	    	//rs.next();
-	    	//teamName = rs.getString("Name");
-	    	rs = stmnt.executeQuery( sqlCode );
-
-	    	rsmd = rs.getMetaData();
-	    	for( int i = 1; i <= rsmd.getColumnCount(); ++i ) {
-	    		headers.add( rsmd.getColumnName(i) );
-	    	}
-
-	    	while( rs.next() ) {
-	    		ArrayList<String> currRow = new ArrayList<String>();
-				for( int i = 1; i <= rsmd.getColumnCount(); ++i ) {
-		    		currRow.add( rs.getString(i) );
-		    	}	    		
-	    		rows.add( currRow );
-	    	}
-
-	    } catch( SQLException e ) {
-	    	e.printStackTrace();
-	    } finally {
-	    	try {
-		    	if( rs != null )
-		    		rs.close();
-		    	
-		    	if( stmnt != null )
-		    		stmnt.close();
-		    	
-		    	if( conn != null )
-		    		conn.close();
-	    	} catch( SQLException e ) {}
-	    }
-
-        return ok(index.render("JDBC Test", rows, headers, sqlCode));
+        return ok(index.render("JDBC Test"));
     }
 
     public static Result queryCommand( String num ) {
