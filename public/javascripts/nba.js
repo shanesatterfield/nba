@@ -37,8 +37,12 @@ $(document).ready(function(){
 
 			$('#result-table').append( htmlString );
 			$('#chart-thing').show();
+			//hljs.initHighlighting();
+			//hljs.highlightBlock( $('#code-section pre code').get(0) );
+			Prism.highlightAll();
 
 		}, function() {
+			alert("hey")
 		});
 	});
 
