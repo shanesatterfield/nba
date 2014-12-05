@@ -8,7 +8,8 @@ import play.db.*;
 
 public class Query {
 	public static ArrayList<ArrayList<String>> insertRow() {
-		final String sqlCode = "INSERT INTO Team (teamName,teamCity,teamState,teamHomeColors,teamAwayColors,teamRanking,teamDivision,teamConference) VALUES ('asdf', 'Coast City', 'CC', 'Green', 'Yellow', 30, 'Pacific', 'Western');";
+		final String sqlCode = "INSERT INTO Team (teamName,teamCity,teamState,teamHomeColors,teamAwayColors,teamRanking,teamDivision,teamConference)\n" +
+		"VALUES ('Tune Squad', 'Tune Land', 'TL', 'Blue', 'Orange', 30, 'Atlantic', 'Eastern');";
 		query(sqlCode, false);
 
 		ArrayList<ArrayList<String>> result = query("SELECT teamName AS Team, teamCity AS City, teamState AS State, teamHomeColors AS 'Home Colors', teamAwayColors AS 'Away Colors', teamRanking AS Ranking, teamDivision AS Division, teamConference AS Conference FROM Team;", true);
@@ -18,7 +19,7 @@ public class Query {
 	}
 
 	public static ArrayList<ArrayList<String>> updateRow() {
-		final String sqlCode = "UPDATE Team SET teamState = 'NY' WHERE teamName = 'asdf';";
+		final String sqlCode = "UPDATE Team SET teamState = 'NY' WHERE teamName = 'Tune Squad';";
 		query(sqlCode, false);
 
 		ArrayList<ArrayList<String>> result = query("SELECT teamName AS Team, teamCity AS City, teamState AS State, teamHomeColors AS 'Home Colors', teamAwayColors AS 'Away Colors', teamRanking AS Ranking, teamDivision AS Division, teamConference AS Conference FROM Team;", true);
@@ -28,7 +29,7 @@ public class Query {
 	}
 
 	public static ArrayList<ArrayList<String>> deleteRow() {
-		final String sqlCode = "DELETE FROM Team WHERE teamName = 'asdf';";
+		final String sqlCode = "DELETE FROM Team WHERE teamName = 'Tune Squad';";
 		query(sqlCode, false);
 
 		ArrayList<ArrayList<String>> result = query("SELECT teamName AS Team, teamCity AS City, teamState AS State, teamHomeColors AS 'Home Colors', teamAwayColors AS 'Away Colors', teamRanking AS Ranking, teamDivision AS Division, teamConference AS Conference FROM Team;", true);
@@ -41,13 +42,13 @@ public class Query {
 		final String sqlCode = "SELECT T.teamName AS 'Team Name', SUM(P.playerWeight) AS 'Total Weight', COUNT(S.staffID) AS 'Staff Members'\n" +
 		"FROM Person PS\n" +
 		"LEFT JOIN Player P\n" +
-		"ON PS.personID = P.playerID\n" +
+		"\tON PS.personID = P.playerID\n" +
 		"LEFT JOIN Staff S\n" +
-		"ON PS.personID = S.staffID\n" +
+		"\tON PS.personID = S.staffID\n" +
 		"INNER JOIN Employment E\n" +
-		"ON PS.personID = E.employmentID\n" +
+		"\tON PS.personID = E.employmentID\n" +
 		"INNER JOIN Team T\n" +
-		"ON E.employmentTeam = T.teamName\n" +
+		"\tON E.employmentTeam = T.teamName\n" +
 		"GROUP BY T.teamName\n" +
 		"HAVING SUM(P.playerWeight) > 3300";
 		ArrayList<ArrayList<String>> result = query(sqlCode, true);
@@ -74,14 +75,14 @@ public class Query {
 	}
 
 	public static ArrayList<ArrayList<String>> query3() {		
-		final String sqlCode = "SELECT T.teamName, PS.personFirstName, PS.personLastName\n" +
+		final String sqlCode = "SELECT T.teamName AS 'Team Name', PS.personFirstName AS 'Player First Name', PS.personLastName AS 'Player Last Name'\n" +
 		"FROM Team T\n" +
 		"INNER JOIN Employment E\n" +
-		"ON T.teamName = E.employmentTeam\n" +
+		"\tON T.teamName = E.employmentTeam\n" +
 		"INNER JOIN Person PS\n" +
-		"ON E.employmentID = PS.personID\n" +
+		"\tON E.employmentID = PS.personID\n" +
 		"INNER JOIN Player P\n" +
-		"ON PS.personID = P.playerID\n" +
+		"\tON PS.personID = P.playerID\n" +
 		"WHERE P.playerPosition = 'Power Forward'";
 		ArrayList<ArrayList<String>> result = query(sqlCode, true);
 		result.add(0, new ArrayList<String>(){{ add(sqlCode); }});
@@ -89,7 +90,7 @@ public class Query {
 	}
 
 	public static ArrayList<ArrayList<String>> query4() {		
-		final String sqlCode = "SELECT  G.gameAwayTeam, COUNT(G.gameNumber), MAX(C.CoachName) AS 'Head Coach'\n" +
+		final String sqlCode = "SELECT  G.gameAwayTeam AS Team, COUNT(G.gameNumber) AS 'Game Number', MAX(C.CoachName) AS 'Head Coach'\n" +
 		"FROM    Game G\n" +
 		"INNER JOIN Team T\n" +
 		"ON G.gameAwayTeam = T.teamName\n" +
@@ -111,7 +112,7 @@ public class Query {
 	}
 
 	public static ArrayList<ArrayList<String>> query5() {		
-		final String sqlCode = "SELECT conferenceName, MIN(total) AS rankingsTotal\n" +
+		final String sqlCode = "SELECT conferenceName AS Conference, MIN(total) AS 'Total Rankings'\n" +
 		"FROM\n" +
 		"(\n" +
 		"	(SELECT conferenceName, SUM(teamRanking) AS total\n" +
@@ -138,7 +139,7 @@ public class Query {
 	}
 
 	public static ArrayList<ArrayList<String>> query6() {		
-		final String sqlCode = "SELECT teamName, venueName, COUNT(Game.gameNumber) AS numberOfGames\n" +
+		final String sqlCode = "SELECT teamName AS 'Team Name', venueName AS 'Venue', COUNT(Game.gameNumber) AS 'Number of Games'\n" +
 		"FROM Team\n" +
 		"LEFT OUTER JOIN Game\n" +
 		"\tON Team.teamName = Game.gameHomeTeam OR Team.teamName = Game.gameAwayTeam\n" +

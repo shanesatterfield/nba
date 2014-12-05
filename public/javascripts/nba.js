@@ -1,12 +1,12 @@
 $(document).ready(function(){
 	$('#chart-thing').hide();
 
-	$('.jack-in').hover(
+	$('.command-block').hover(
 		function() {
-			$(this).addClass('lift-up', 400);
+			$(this).children('.jack-in').addClass('lift-up', 400);
 		},
 		function() {
-			$(this).removeClass('lift-up', 400, "linear");
+			$(this).children('.jack-in').removeClass('lift-up', 400, "linear");
 		}
 	);
 
@@ -37,8 +37,6 @@ $(document).ready(function(){
 
 			$('#result-table').append( htmlString );
 			$('#chart-thing').show();
-			//hljs.initHighlighting();
-			//hljs.highlightBlock( $('#code-section pre code').get(0) );
 			Prism.highlightAll();
 
 		}, function() {

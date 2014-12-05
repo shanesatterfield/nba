@@ -10,96 +10,83 @@
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
-	<!--
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
-	<link rel="stylesheet" type="text/css" href="http://bootswatch.com/united/bootstrap.min.css">
-	-->
-	<link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/readable.bootstrap.min.css")">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/flatly.bootstrap.min.css")">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
 	<script>hljs.initHighlightingOnLoad();</script>
 
-	<link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/style.css")">
 
 
 	<link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/prism.css")">
 	<script type="text/javascript" src="@routes.Assets.at("javascripts/prism.js")"></script>
 	
+	<link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/style.css")">
 	<script type="text/javascript" src="@routes.Assets.at("javascripts/nba.js")"></script>
 </head>
 <body>
 	<nav class="navbar navbar-default" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
-				<span class="navbar-brand">CECS 323 NBA Team</span>
+				<span class="navbar-brand">CECS 323 Final JDBC Project - NBA Team</span>
 			</div>
 		</div>
 	</nav>
+
 	<div id="menu-choice" class="container">
 		<div class="row">
 			<div class="command-block col-md-4">
 				<div class="jack-in alert alert-success" data-command="1">
-					<h2>Query 1</h2>
-					<hr />
+					<h1>Query 1</h1>
 					<p>Find the teams that have a total weight over 3300 pounds and the staff members of those teams.</p>
 				</div>
 			</div>
 			<div class="command-block col-md-4">
 				<div class="jack-in alert alert-info" data-command="2">
-					<h2>Query 2</h2>
-					<hr />
+					<h1>Query 2</h1>
 					<p>Find all players and staff members in the Clippers team.</p>
 				</div>
 			</div>
 			<div class="command-block col-md-4">
 				<div class="jack-in alert alert-danger" data-command="3">
-					<h2>Query 3</h2>
-					<hr />
+					<h1>Query 3</h1>
 					<p>Find all Power Forwards in the database along with their team name.</p>
 				</div>
 			</div>
 			<div class="command-block col-md-4">
 				<div class="jack-in alert alert-danger" data-command="4">
-					<h2>Query 4</h2>
-					<hr />
+					<h1>Query 4</h1>
 					<p>Find the team playing the most away games in December and the head coach for this team.</p>
 				</div>
 			</div>
 			<div class="command-block col-md-4">
 				<div class="jack-in alert alert-success" data-command="5">
-					<h2>Query 5</h2>
-					<hr />
+					<h1>Query 5</h1>
 					<p>Find the conference with the highest total ranked teams.</p>
 				</div>
 			</div>
 			<div class="command-block col-md-4">
 				<div class="jack-in alert alert-info" data-command="6">
-					<h2>Query 6</h2>
-					<hr />
+					<h1>Query 6</h1>
 					<p>Find the teams playing 2 or more games at Staples Center that have no games broadcast on NBA TV.</p>
 				</div>
 			</div>
 			<div class="command-block col-md-4">
 				<div class="jack-in alert alert-info" data-command="7">
-					<h2>Insert</h2>
-					<hr />
+					<h1>Insert</h1>
 					<p>Insert a new team into the Team table.</p>
 				</div>
 			</div>
 			<div class="command-block col-md-4">
 				<div class="jack-in alert alert-danger" data-command="8">
-					<h2>Update</h2>
-					<hr />
-					<p>Alter the data-command of an attribute of all rows that fill the given condition.</p>
+					<h1>Update</h1>
+					<p>Alter the value of an attribute of all rows that fill the given condition.</p>
 				</div>
 			</div>
 			<div class="command-block col-md-4">
 				<div class="jack-in alert alert-success" data-command="9">
-					<h2>Delete</h2>
-					<hr />
+					<h1>Delete</h1>
 					<p>Delete the team that was inserted earlier.</p>
 				</div>
 			</div>
@@ -112,7 +99,7 @@
 		<h1>SQL Code</h1>
 		<pre><code id="code-section" class="language-sql"></code></pre>
 		<h1>Result Data</h1>
-		<table id="result-table" class="table table-striped"></table>
+		<table id="result-table" class="table table-striped table-bordered table-hover"></table>
 	</div>
 </body>
 </html>
