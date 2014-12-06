@@ -8,12 +8,15 @@ import play.db.*;
 
 public class Query {
 	public static ArrayList<ArrayList<String>> insertRow() {
-		final String sqlCode = "INSERT INTO Team (teamName,teamCity,teamState,teamHomeColors,teamAwayColors,teamRanking,teamDivision,teamConference)\n" +
-		"VALUES ('Tune Squad', 'Tune Land', 'TL', 'Blue', 'Orange', 30, 'Atlantic', 'Eastern');";
+		final String sqlCode  = "INSERT INTO Division (divisionName, divisionConfer)\n" +
+		"\tVALUES('Rift', 'Eastern');\n\n";
+		final String sqlCode2 = "INSERT INTO Team (teamName,teamCity,teamState,teamHomeColors,teamAwayColors,teamRanking,teamDivision,teamConference)\n" +
+		"\tVALUES ('Tune Squad', 'Tune Land', 'TL', 'Blue', 'Orange', 30, 'Rift', 'Eastern');";
 		query(sqlCode, false);
+		query(sqlCode2, false);
 
 		ArrayList<ArrayList<String>> result = query("SELECT teamName AS Team, teamCity AS City, teamState AS State, teamHomeColors AS 'Home Colors', teamAwayColors AS 'Away Colors', teamRanking AS Ranking, teamDivision AS Division, teamConference AS Conference FROM Team;", true);
-		result.add(0, new ArrayList<String>(){{ add(sqlCode); }});
+		result.add(0, new ArrayList<String>(){{ add(sqlCode + sqlCode2); }});
 
 		return result;
 	}
@@ -29,7 +32,7 @@ public class Query {
 	}
 
 	public static ArrayList<ArrayList<String>> deleteRow() {
-		final String sqlCode = "DELETE FROM Team WHERE teamName = 'Tune Squad';";
+		final String sqlCode = "DELETE FROM Division WHERE divisionName = 'Rift';";
 		query(sqlCode, false);
 
 		ArrayList<ArrayList<String>> result = query("SELECT teamName AS Team, teamCity AS City, teamState AS State, teamHomeColors AS 'Home Colors', teamAwayColors AS 'Away Colors', teamRanking AS Ranking, teamDivision AS Division, teamConference AS Conference FROM Team;", true);
