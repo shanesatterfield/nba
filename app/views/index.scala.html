@@ -14,10 +14,6 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/flatly.bootstrap.min.css")">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
-
-
 
 	<link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/prism.css")">
 	<script type="text/javascript" src="@routes.Assets.at("javascripts/prism.js")"></script>
@@ -26,79 +22,98 @@
 	<script type="text/javascript" src="@routes.Assets.at("javascripts/nba.js")"></script>
 </head>
 <body>
-	<nav class="navbar navbar-default" role="navigation">
+	<div id="header-block" class="container-fluid alert alert-info">
 		<div class="container">
-			<div class="navbar-header">
-				<span class="navbar-brand">CECS 323 Final JDBC Project - NBA Team</span>
+			<div class="page-header">
+				<h1 id="myPageHeader">CECS 323 Final JDBC Project - Team 2</h1>
 			</div>
 		</div>
-	</nav>
+	</div>
 
 	<div id="menu-choice" class="container">
 		<div class="row">
 			<div class="command-block col-md-4">
 				<div class="jack-in alert alert-success" data-command="1">
 					<h1>Query 1</h1>
-					<p>Find the teams that have a total weight over 3300 pounds and the staff members of those teams.</p>
+					<p></p>
 				</div>
 			</div>
 			<div class="command-block col-md-4">
-				<div class="jack-in alert alert-info" data-command="2">
+				<div class="jack-in alert alert-success" data-command="2">
 					<h1>Query 2</h1>
-					<p>Find all players and staff members in the Clippers team.</p>
+					<p></p>
 				</div>
 			</div>
 			<div class="command-block col-md-4">
-				<div class="jack-in alert alert-danger" data-command="3">
+				<div class="jack-in alert alert-success" data-command="3">
 					<h1>Query 3</h1>
-					<p>Find all Power Forwards in the database along with their team name.</p>
+					<p></p>
 				</div>
 			</div>
 			<div class="command-block col-md-4">
-				<div class="jack-in alert alert-danger" data-command="4">
+				<div class="jack-in alert alert-success" data-command="4">
 					<h1>Query 4</h1>
-					<p>Find the team playing the most away games in December and the head coach for this team.</p>
+					<p></p>
 				</div>
 			</div>
 			<div class="command-block col-md-4">
 				<div class="jack-in alert alert-success" data-command="5">
 					<h1>Query 5</h1>
-					<p>Find the conference with the highest total ranked teams.</p>
+					<p></p>
 				</div>
 			</div>
 			<div class="command-block col-md-4">
-				<div class="jack-in alert alert-info" data-command="6">
+				<div class="jack-in alert alert-success" data-command="6">
 					<h1>Query 6</h1>
-					<p>Find the teams playing 2 or more games at Staples Center that have no games broadcast on NBA TV.</p>
+					<p></p>
 				</div>
 			</div>
 			<div class="command-block col-md-4">
-				<div class="jack-in alert alert-info" data-command="7">
+				<div class="jack-in alert alert-danger" data-command="7">
 					<h1>Insert</h1>
-					<p>Insert a new team into the Team table.</p>
+					<p></p>
 				</div>
 			</div>
 			<div class="command-block col-md-4">
 				<div class="jack-in alert alert-danger" data-command="8">
 					<h1>Update</h1>
-					<p>Alter the value of an attribute of all rows that fill the given condition.</p>
+					<p></p>
 				</div>
 			</div>
 			<div class="command-block col-md-4">
-				<div class="jack-in alert alert-success" data-command="9">
+				<div class="jack-in alert alert-danger" data-command="9">
 					<h1>Delete</h1>
-					<p>Deletes the Rift division.</p>
+					<p></p>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div id="chart-thing" class="container">
-		<button id="return-block" class="btn btn-default btn-lg">
+		<button id="return-block" class="btn btn-default btn-lg alert alert-danger">
 			<span class="glyphicon glyphicon-arrow-left"></span>
 		</button>
-		<h1>SQL Code</h1>
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h1>Query Description</h1>
+			</div>
+			<div class="panel-body">
+				<p id="query-description"></p>
+			</div>
+		</div>
+
+		<div class="panel panel-default tight-panel">
+			<div class="panel-heading">
+				<h1>SQL Code</h1>
+			</div>
+		</div>
 		<pre><code id="code-section" class="language-sql"></code></pre>
-		<h1>Result Data</h1>
+
+		<div class="panel panel-default tight-panel">
+			<div class="panel-heading">
+				<h1>Result Data</h1>
+			</div>
+		</div>
 		<table id="result-table" class="table table-striped table-bordered table-hover"></table>
 	</div>
 </body>

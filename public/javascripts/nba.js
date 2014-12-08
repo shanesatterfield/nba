@@ -1,5 +1,28 @@
-$(document).ready(function(){
+var queryDescriptions = [
+	'Find the teams that have a total weight over 3300 pounds and the staff members of those teams.',
+	'Find all players and staff members in the Clippers team.',
+	'Find all Power Forwards in the database along with their team name.',
+	'Find the team playing the most away games in December and the head coach for this team.',
+	'Find the conference with the highest total ranked teams.',
+	'Find the teams playing 2 or more games at Staples Center that have no games broadcast on NBA TV.',
+	'Insert a new team into the Team table.',
+	'Alter the value of an attribute of all rows that fill the given condition.',
+	'Deletes the Rift division.'
+];
+
+function loadQueryDescriptions() {
+	$('#menu-choice > .row').children().each(function() {
+		var index = parseInt($(this).find('.jack-in').data('command')) - 1;
+		$(this).find('p').html( queryDescriptions[ index ] )
+		console.log("hey");
+	})
+
+}
+
+$(document).ready(function() {
 	$('#chart-thing').hide();
+
+	loadQueryDescriptions();
 
 	$('.command-block').hover(
 		function() {
@@ -17,6 +40,7 @@ $(document).ready(function(){
 		$.getJSON('queryCommand/' + commandValue, function(data){
 			$('#result-table').empty();
 			$('#code-section').html( data[0][0] );
+			$('#query-description').html( queryDescriptions[ parseInt(commandValue)-1 ] );
 
 			htmlString = "<thead><tr>"
 			var header;
